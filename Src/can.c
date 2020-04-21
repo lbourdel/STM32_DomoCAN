@@ -383,7 +383,7 @@ void CAN_Config(CAN_TypeDef* CANx) {
   CAN_Init(CAN1, &CAN_InitStructure);
 		*/
 	
-  /* CAN Baudrate = 250 KBps (CAN APB1 clocked at 45 MHz) */ // LBR
+  /* CAN Baudrate = 500 KBps (CAN APB1 clocked at 45 MHz) */ // LBR
 	/*
 	Tq=(BRP[9:0]+1)*time period of APB clock = 6/45Mhz 
 	Tbs1=Tq*(TS1[3:0]+1) =Tq*(TS1[3:0]+1) = 12tq

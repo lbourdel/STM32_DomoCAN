@@ -1,20 +1,23 @@
 /**
- * \file      SysTick.h
+ * \file      TreatCanMsg.h
  * \author    L. BOURDEL
  * \version   1.0
  * \date      2017
- * \brief     Interfaces for System Tick services
+ * \brief     Interfaces for CAN received msg
  *
  * \details   !!! Good Luck !!!
  */
- 
-#ifndef SYSTICK_H
-#define SYSTICK_H
+
+
+#ifndef TREAT_CAN_MSG_H
+#define TREAT_CAN_MSG_H
 
 #include "main.h"
+
 // ************************************************************************************
 // *********************************** ENUM *******************************************
 // ************************************************************************************
+
 
 
 // ************************************************************************************
@@ -24,29 +27,12 @@
 // ************************************************************************************
 // ********************************** DEFINE ******************************************
 // ************************************************************************************
-#define HAL_GetTick SysTick_GetTick
+
 
 // ************************************************************************************
 // ********************************* FUNCTION *****************************************
 // ************************************************************************************
 
-/**
-  \defgroup SysTick_Group 04 - System Tick primitives
-  \brief    Functions to connect Input as Interrupt.
-	@{
-*/
-void SysTick_Initialize(uint32_t);
-
-void Delay_ms(uint32_t);
-
-void SysTick_Handler(void);
-
-uint32_t SysTick_GetTick (void);
-
-	
-/**@} end of SysTick interface */
-
-#endif /* SYSTICK_H */
 
 
-
+#endif

@@ -275,6 +275,13 @@ typedef struct
 #define CAN_FLAG_RQCP1             ((uint32_t)0x38000100) /*!< Request MailBox1 Flag */
 #define CAN_FLAG_RQCP2             ((uint32_t)0x38010000) /*!< Request MailBox2 Flag */
 
+#define CAN_FLAG_TXOK0             0x00000501U  /*!< Transmission OK MailBox0 flag */
+#define CAN_FLAG_TXOK1             0x00000509U  /*!< Transmission OK MailBox1 flag */
+#define CAN_FLAG_TXOK2             0x00000511U  /*!< Transmission OK MailBox2 flag */
+#define CAN_FLAG_TME0              0x0000051AU  /*!< Transmit mailbox 0 empty flag */
+#define CAN_FLAG_TME1              0x0000051BU  /*!< Transmit mailbox 0 empty flag */
+#define CAN_FLAG_TME2              0x0000051CU  /*!< Transmit mailbox 0 empty flag */
+
 /* Receive Flags */
 #define CAN_FLAG_FMP0              ((uint32_t)0x12000003) /*!< FIFO 0 Message Pending Flag */
 #define CAN_FLAG_FF0               ((uint32_t)0x32000008) /*!< FIFO 0 Full Flag            */
@@ -282,6 +289,9 @@ typedef struct
 #define CAN_FLAG_FMP1              ((uint32_t)0x14000003) /*!< FIFO 1 Message Pending Flag */
 #define CAN_FLAG_FF1               ((uint32_t)0x34000008) /*!< FIFO 1 Full Flag            */
 #define CAN_FLAG_FOV1              ((uint32_t)0x34000010) /*!< FIFO 1 Overrun Flag         */
+
+
+
 
 
 /** @defgroup CAN_identifier_type 
@@ -313,6 +323,28 @@ typedef struct
 #define CAN_IT_WKU                  ((uint32_t)0x00010000) /*!< Wake-up Interrupt*/
 #define CAN_IT_SLK                  ((uint32_t)0x00020000) /*!< Sleep acknowledge Interrupt*/
 
+/** @defgroup CAN_Error_Code CAN Error Code
+  * @{
+  */
+/*
+#define   HAL_CAN_ERROR_NONE      0x00000000U    /*!< No error             */
+#define   HAL_CAN_ERROR_EWG       0x00000001U    /*!< EWG error            */
+#define   HAL_CAN_ERROR_EPV       0x00000002U    /*!< EPV error            */
+#define   HAL_CAN_ERROR_BOF       0x00000004U    /*!< BOF error            */
+#define   HAL_CAN_ERROR_STF       0x00000008U    /*!< Stuff error          */
+#define   HAL_CAN_ERROR_FOR       0x00000010U    /*!< Form error           */
+#define   HAL_CAN_ERROR_ACK       0x00000020U    /*!< Acknowledgment error */
+#define   HAL_CAN_ERROR_BR        0x00000040U    /*!< Bit recessive        */
+#define   HAL_CAN_ERROR_BD        0x00000080U    /*!< LEC dominant         */
+#define   HAL_CAN_ERROR_CRC       0x00000100U    /*!< LEC transfer error   */
+#define   HAL_CAN_ERROR_FOV0      0x00000200U    /*!< FIFO0 overrun error  */
+#define   HAL_CAN_ERROR_FOV1      0x00000400U    /*!< FIFO1 overrun error  */
+#define   HAL_CAN_ERROR_TXFAIL    0x00000800U    /*!< Transmit failure     */
+*/
+/**
+  * @}
+  */
+	
 /* Error Interrupts */
 #define CAN_IT_EWG                  ((uint32_t)0x00000100) /*!< Error warning Interrupt*/
 #define CAN_IT_EPV                  ((uint32_t)0x00000200) /*!< Error passive Interrupt*/
@@ -424,4 +456,7 @@ extern uint8_t flagReceived;
 
 
 void CAN_SendTestMsg(CAN_TypeDef* CANx);
+
+void CAN_ClearFlag(CAN_TypeDef* CANx, uint32_t CAN_FLAG);
+void CAN_ClearITPendingBit(CAN_TypeDef* CANx, uint32_t CAN_IT);
 #endif // CAN_H
