@@ -71,8 +71,6 @@ void (*timer_callback[TIM_Max_index])( TIM_TypeDef * ) ={
 	DefaultFunc
 };
 	
-
-
 TIM_Base_InitTypeDef TIM_InitValue;  /*!<  structure variable for function parameter */
 
 /**

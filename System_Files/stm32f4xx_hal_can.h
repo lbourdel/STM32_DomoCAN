@@ -30,7 +30,8 @@ extern "C" {
 
 
 /* Definition for CANx clock resources */
-#define CANx                           CAN1
+// LBR #define CANx                           CAN1
+#define CANx                           CAN2
 #define CANx_CLK_ENABLE()              __HAL_RCC_CAN1_CLK_ENABLE()
 #define CANx_GPIO_CLK_ENABLE()         __HAL_RCC_GPIOA_CLK_ENABLE()
 
@@ -50,8 +51,13 @@ extern "C" {
 #define CANx_RX_AF                     GPIO_AF9_CAN1
 
 /* Definition for CAN's NVIC */
+// LBR
+/*
 #define CANx_RX_IRQn                   CAN1_RX0_IRQn
 #define CANx_RX_IRQHandler             CAN1_RX0_IRQHandler
+*/
+#define CANx_RX_IRQn                   CAN2_RX0_IRQn
+#define CANx_RX_IRQHandler             CAN2_RX0_IRQHandler
 
 
 /** @addtogroup STM32F4xx_HAL_Driver
@@ -331,6 +337,8 @@ typedef  void (*pCAN_CallbackTypeDef)(CAN_HandleTypeDef *hcan); /*!< pointer to 
 #define HAL_CAN_ERROR_NOT_READY       (0x00080000U)  /*!< Peripheral not ready                                 */
 #define HAL_CAN_ERROR_NOT_STARTED     (0x00100000U)  /*!< Peripheral not started                               */
 #define HAL_CAN_ERROR_PARAM           (0x00200000U)  /*!< Parameter error                                      */
+#define HAL_CAN_ERROR_TX_MAILBOX_FULL (0x01000000U)  /*!< Parameter error                                      */
+#define HAL_CAN_ERROR_RX_FIFO_FULL    (0x02000000U)  /*!< Parameter error                                      */
 
 #if USE_HAL_CAN_REGISTER_CALLBACKS == 1
 #define HAL_CAN_ERROR_INVALID_CALLBACK (0x00400000U) /*!< Invalid Callback error                               */

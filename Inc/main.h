@@ -22,8 +22,9 @@
 #include "SysTick.h"
 #include "interrupt.h"
 #include "timer.h"
-// LBR #include "can.h"
 #include "stm32f4xx_hal_can.h"
+#include "can_router.h"
+#include "can_common_cmds.h"
 
 //void assert_failed(uint8_t* file, uint32_t line) ;
 
